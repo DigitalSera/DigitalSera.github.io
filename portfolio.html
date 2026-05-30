@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Success Azubuike — The Digital Sera</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --beige:#F5F0E8;
+    --beige-dark:#EDE6D6;
+    --beige-deeper:#D9CFBC;
+    --lavender:#C4B5D9;
+    --lavender-mid:#9B88BE;
+    --lavender-deep:#6B5A9A;
+    --lavender-text:#3D2E6B;
+    --text-dark:#1A1612;
+    --text-mid:#4A4035;
+    --text-muted:#7A6E62;
+    --white:#FDFAF5;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--beige);color:var(--text-dark);line-height:1.7;font-size:16px;}
+
+  nav{position:fixed;top:0;left:0;right:0;background:rgba(245,240,232,0.92);backdrop-filter:blur(8px);z-index:100;border-bottom:1px solid var(--beige-deeper);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--lavender-deep);letter-spacing:0.02em;}
+  .nav-links{display:flex;gap:2rem}
+  .nav-links a{text-decoration:none;font-size:0.85rem;font-weight:500;color:var(--text-mid);letter-spacing:0.05em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--lavender-deep)}
+
+  section{padding:6rem 2rem}
+  .container{max-width:900px;margin:0 auto}
+
+  /* HERO */
+  #hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(160deg,var(--beige) 60%,#E8E0F0 100%);padding-top:60px;}
+  .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:900px;margin:0 auto;width:100%;}
+  .hero-tag{display:inline-block;background:var(--lavender);color:var(--lavender-text);font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:0.35rem 0.9rem;border-radius:2rem;margin-bottom:1.5rem;}
+  .hero-name{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:600;line-height:1.1;color:var(--text-dark);margin-bottom:0.5rem;}
+  .hero-name span{color:var(--lavender-deep)}
+  .hero-title{font-size:1rem;font-weight:300;color:var(--text-muted);letter-spacing:0.03em;margin-bottom:1.5rem;}
+  .hero-bio{font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:2rem;}
+  .hero-cta{display:inline-flex;align-items:center;gap:0.5rem;background:var(--lavender-deep);color:var(--white);text-decoration:none;padding:0.75rem 1.75rem;border-radius:2rem;font-size:0.9rem;font-weight:500;transition:background 0.2s,transform 0.15s;}
+  .hero-cta:hover{background:var(--lavender-mid);transform:translateY(-1px)}
+  .hero-cta-ghost{display:inline-flex;align-items:center;gap:0.5rem;border:1.5px solid var(--lavender-deep);color:var(--lavender-deep);text-decoration:none;padding:0.75rem 1.75rem;border-radius:2rem;font-size:0.9rem;font-weight:500;margin-left:1rem;transition:background 0.2s;}
+  .hero-cta-ghost:hover{background:var(--beige-dark)}
+  .hero-visual{display:flex;justify-content:center;align-items:center;}
+  .avatar-ring{width:280px;height:280px;border-radius:50%;border:3px solid var(--lavender-mid);display:flex;align-items:center;justify-content:center;position:relative;}
+  .avatar-inner{width:260px;height:260px;border-radius:50%;background:linear-gradient(135deg,var(--lavender) 0%,var(--beige-dark) 100%);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:600;color:var(--lavender-deep);}
+  .hero-badge{position:absolute;bottom:10px;right:0;background:var(--white);border:1px solid var(--beige-deeper);border-radius:0.75rem;padding:0.5rem 0.85rem;font-size:0.75rem;font-weight:500;color:var(--lavender-text);white-space:nowrap;box-shadow:0 2px 12px rgba(107,90,154,0.12);}
+
+  /* STATS */
+  .stats-strip{background:var(--lavender-deep);color:var(--white);padding:2.5rem 2rem;}
+  .stats-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;}
+  .stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;line-height:1;color:var(--lavender);}
+  .stat-label{font-size:0.8rem;font-weight:400;color:rgba(255,255,255,0.7);margin-top:0.3rem;letter-spacing:0.05em;text-transform:uppercase;}
+
+  /* ABOUT */
+  #about{background:var(--white)}
+  .section-label{font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--lavender-mid);margin-bottom:0.75rem;}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;line-height:1.2;margin-bottom:1.5rem;}
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;}
+  .about-text p{color:var(--text-mid);margin-bottom:1rem;font-size:1rem;}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
+  .skill-tag{background:var(--beige);border:1px solid var(--beige-deeper);color:var(--text-mid);font-size:0.8rem;font-weight:500;padding:0.35rem 0.85rem;border-radius:2rem;}
+  .about-highlights{display:flex;flex-direction:column;gap:1rem;}
+  .highlight-card{background:var(--beige);border:1px solid var(--beige-deeper);border-radius:1rem;padding:1.25rem;border-left:3px solid var(--lavender-mid);}
+  .highlight-card h4{font-size:0.85rem;font-weight:500;color:var(--lavender-deep);margin-bottom:0.35rem;text-transform:uppercase;letter-spacing:0.05em;}
+  .highlight-card p{font-size:0.9rem;color:var(--text-mid);}
+
+  /* PROJECTS */
+  #projects{background:var(--beige)}
+  .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+  .project-card{background:var(--white);border:1px solid var(--beige-deeper);border-radius:1.25rem;padding:1.75rem;transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;color:inherit;display:block;}
+  .project-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(107,90,154,0.12);}
+  .project-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;background:linear-gradient(135deg,var(--lavender-deep) 0%,#4A3A7A 100%);color:var(--white);border:none;}
+  .project-award{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);font-size:0.75rem;font-weight:500;padding:0.3rem 0.75rem;border-radius:2rem;margin-bottom:1rem;}
+  .project-card.featured .project-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--white);margin-bottom:0.75rem;}
+  .project-card.featured .project-desc{color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.7;}
+  .project-card.featured .project-tags{margin-top:1.25rem;}
+  .project-card.featured .tag{background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.2);}
+  .project-links{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem;}
+  .project-link{color:rgba(255,255,255,0.7);font-size:0.85rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1.1rem;border-radius:2rem;transition:background 0.2s;}
+  .project-link:hover{background:rgba(255,255,255,0.1)}
+  .project-link.dark{color:var(--lavender-deep);border-color:var(--lavender);font-size:0.8rem;padding:0.4rem 0.9rem;}
+  .featured-visual{display:flex;align-items:center;justify-content:center;}
+  .featured-mockup{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:1rem;padding:1.5rem;width:100%;}
+  .mockup-bar{height:8px;border-radius:4px;background:rgba(255,255,255,0.2);margin-bottom:0.6rem;}
+  .mockup-bar.accent{background:rgba(196,181,217,0.6);width:70%;}
+  .mockup-row{display:flex;gap:0.5rem;margin-bottom:0.5rem;}
+  .mockup-block{height:32px;border-radius:6px;background:rgba(255,255,255,0.12);flex:1;}
+  .mockup-block.tall{height:60px;}
+  .project-icon{width:44px;height:44px;background:var(--beige);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.3rem;}
+  .project-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;margin-bottom:0.5rem;color:var(--text-dark);}
+  .project-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.6;}
+  .project-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
+  .tag{background:var(--beige);border:1px solid var(--beige-deeper);color:var(--text-mid);font-size:0.75rem;font-weight:500;padding:0.25rem 0.65rem;border-radius:2rem;}
+  .card-links{display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap;}
+  .card-link{font-size:0.78rem;color:var(--lavender-deep);text-decoration:none;border:1px solid var(--lavender);padding:0.3rem 0.8rem;border-radius:2rem;transition:background 0.2s;}
+  .card-link:hover{background:var(--beige-dark);}
+
+  /* EXPERIENCE */
+  #experience{background:var(--white)}
+  .timeline{margin-top:2.5rem;}
+  .timeline-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--beige-deeper);}
+  .timeline-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .timeline-date{font-size:0.8rem;color:var(--text-muted);padding-top:0.2rem;}
+  .timeline-role{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;margin-bottom:0.2rem;}
+  .timeline-company{font-size:0.85rem;color:var(--lavender-mid);font-weight:500;margin-bottom:0.75rem;}
+  .timeline-bullets{list-style:none;padding:0;}
+  .timeline-bullets li{font-size:0.9rem;color:var(--text-mid);padding:0.2rem 0;padding-left:1rem;position:relative;}
+  .timeline-bullets li::before{content:'—';position:absolute;left:0;color:var(--lavender-mid);font-size:0.8rem;}
+
+  /* CONTACT */
+  #contact{background:linear-gradient(160deg,#E8E0F0 0%,var(--beige) 60%);text-align:center;}
+  #contact p{color:var(--text-muted);margin-bottom:2.5rem;font-size:1rem;}
+  .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+  .contact-link{display:inline-flex;align-items:center;gap:0.5rem;background:var(--white);border:1px solid var(--beige-deeper);color:var(--lavender-deep);text-decoration:none;padding:0.7rem 1.4rem;border-radius:2rem;font-size:0.9rem;font-weight:500;transition:background 0.2s,transform 0.15s;}
+  .contact-link:hover{background:var(--beige-dark);transform:translateY(-1px);}
+  .contact-link.primary{background:var(--lavender-deep);color:var(--white);border-color:var(--lavender-deep);}
+  .contact-link.primary:hover{background:var(--lavender-mid);}
+
+  footer{background:var(--lavender-deep);color:rgba(255,255,255,0.6);text-align:center;padding:1.5rem;font-size:0.8rem;}
+  footer span{color:var(--lavender);}
+
+  @media(max-width:680px){
+    .hero-inner,.about-grid,.projects-grid{grid-template-columns:1fr;}
+    .project-card.featured{grid-template-columns:1fr;}
+    .featured-visual{display:none;}
+    .hero-name{font-size:2.8rem;}
+    .stats-inner{grid-template-columns:1fr 1fr;gap:1.5rem;}
+    .timeline-item{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">The Digital Sera</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Open to opportunities</div>
+      <h1 class="hero-name">Success<br><span>Azubuike</span></h1>
+      <p class="hero-title">Data Analyst in Training &nbsp;·&nbsp; Business Operations Professional</p>
+      <p class="hero-bio">I sit at the intersection of operations and data — building systems, spotting inefficiencies, and turning numbers into decisions. 3MTT Next Gen Fellow. Builder of FinIQ.</p>
+      <a href="#projects" class="hero-cta">View My Work</a>
+      <a href="#contact" class="hero-cta-ghost">Get In Touch</a>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-ring">
+        <div class="avatar-inner">SA</div>
+        <div class="hero-badge">🏆 3rd Place · 3MTT Delta State</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div><div class="stat-num">2+</div><div class="stat-label">Years Experience</div></div>
+    <div><div class="stat-num">4</div><div class="stat-label">Projects Completed</div></div>
+    <div><div class="stat-num">3rd</div><div class="stat-label">Place, Delta State</div></div>
+    <div><div class="stat-num">59.5M</div><div class="stat-label">Records Analysed</div></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">Operations precision.<br>Analytical mindset.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a Business Operations Analyst and Data Analytics Fellow with hands-on experience managing operations, systems, and workflows in a fast-paced tech startup environment.</p>
+        <p>Currently a Next Gen Fellow in the 3MTT Knowledge Programme, I am actively developing expertise in data analytics, financial intelligence, and process optimisation — with the goal of becoming a data-driven leader.</p>
+        <p>I built FinIQ, a web-based financial health tracker that helps small business owners detect profit leakages — and it placed 3rd at the 3MTT Delta State Knowledge Showcase.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Microsoft Excel (Advanced)</span>
+          <span class="skill-tag">Data Analysis</span>
+          <span class="skill-tag">Data Visualisation</span>
+          <span class="skill-tag">Dashboard Design</span>
+          <span class="skill-tag">Google Workspace</span>
+          <span class="skill-tag">Process Optimisation</span>
+          <span class="skill-tag">Report Writing</span>
+          <span class="skill-tag">Chart.js</span>
+          <span class="skill-tag">HTML / CSS / JS</span>
+        </div>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <h4>3MTT Next Gen Fellow</h4>
+          <p>Actively training in data analytics through Nigeria's flagship tech talent programme.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Builder's Mindset</h4>
+          <p>I don't just analyse — I build tools. FinIQ is live, deployed, and used by real people.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Operations + Data</h4>
+          <p>Rare combination of administrative precision and analytical capability in one profile.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects that solve<br>real problems.</h2>
+    <div class="projects-grid">
+
+      <!-- FINIQ - FEATURED -->
+      <a href="https://digitalsera.github.io/FinIQ" target="_blank" class="project-card featured">
+        <div>
+          <div class="project-award">🏆 3rd Place — 3MTT Delta State Knowledge Showcase</div>
+          <div class="project-title">FinIQ</div>
+          <p class="project-desc">A financial intelligence web app for informal retailers and small business owners. Features a transaction tracker, Point of Sale system, inventory management, COGS tracking, Chart.js visualisations, and an AI-powered business assistant. Deployed live via GitHub Pages.</p>
+          <div class="project-tags">
+            <span class="tag">HTML / CSS / JS</span>
+            <span class="tag">Chart.js</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">View Live App →</span>
+          </div>
+        </div>
+        <div class="featured-visual">
+          <div class="featured-mockup">
+            <div class="mockup-bar accent"></div>
+            <div class="mockup-bar" style="width:90%"></div>
+            <div class="mockup-row" style="margin-top:1rem">
+              <div class="mockup-block tall"></div>
+              <div class="mockup-block tall" style="flex:1.5"></div>
+            </div>
+            <div class="mockup-row">
+              <div class="mockup-block"></div>
+              <div class="mockup-block"></div>
+              <div class="mockup-block"></div>
+            </div>
+            <div class="mockup-bar" style="width:60%;margin-top:0.5rem"></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- CRIME WEB DASHBOARD -->
+      <div class="project-card">
+        <div class="project-icon">📊</div>
+        <div class="project-title">UK Crime Analysis Dashboard</div>
+        <p class="project-desc">Interactive web dashboard analysing 59.5M UK crime records from 2012–2024. Features animated KPI cards, line chart with COVID-19 annotation, offence group breakdown, top 10 force areas, and quarterly trend analysis.</p>
+        <div class="project-tags">
+          <span class="tag">HTML / CSS / JS</span>
+          <span class="tag">Data Visualisation</span>
+          <span class="tag">UK Home Office Data</span>
+          <span class="tag">59.5M Records</span>
+        </div>
+        <div class="card-links">
+          <a href="https://digitalsera.github.io/crime-dashboard" target="_blank" class="card-link">View Web Dashboard →</a>
+          <a href="https://docs.google.com/spreadsheets/d/1lHPo9yzb2cwehYmVT1PVhqt3ZuQOJgzf/edit?usp=sharing" target="_blank" class="card-link">View Excel Analysis →</a>
+        </div>
+      </div>
+
+      <!-- BUSINESS DASHBOARD -->
+      <div class="project-card">
+        <div class="project-icon">📋</div>
+        <div class="project-title">Business Operations Dashboard</div>
+        <p class="project-desc">A comprehensive Excel-based master workbook built for a tech startup — featuring finance tracking, job management, inventory monitoring with dynamic stock alerts, and operational reporting with automated status indicators.</p>
+        <div class="project-tags">
+          <span class="tag">Microsoft Excel</span>
+          <span class="tag">Dashboard Design</span>
+          <span class="tag">SUMIF / Conditional Formatting</span>
+          <span class="tag">Inventory Management</span>
+        </div>
+        <div class="card-links">
+          <a href="#" class="card-link">View Dashboard →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">Where I've built<br>my craft.</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Oct 2025 – Present<br><br><span style="color:var(--lavender-mid);font-weight:500">Warri, Nigeria</span></div>
+        <div>
+          <div class="timeline-role">Office Manager</div>
+          <div class="timeline-company">TRi-P Tech</div>
+          <ul class="timeline-bullets">
+            <li>Oversee day-to-day business operations, administrative systems, and internal workflows for a growing tech startup</li>
+            <li>Developed and implemented company operational policies including staff management frameworks and compliance documentation</li>
+            <li>Built an Excel-based master workbook for finance tracking, job management, and inventory monitoring</li>
+            <li>Produce internal reports and data summaries to support management decision-making</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Jan 2024 – Oct 2025<br><br><span style="color:var(--lavender-mid);font-weight:500">Kwale, Nigeria</span></div>
+        <div>
+          <div class="timeline-role">Accountant & Supervisor</div>
+          <div class="timeline-company">Piccoc Hotel & Suites</div>
+          <ul class="timeline-bullets">
+            <li>Recorded daily activities and submitted daily sales reports across departments using Microsoft Excel</li>
+            <li>Carried out HR duties including onboarding of new staff and conducting interviews</li>
+            <li>Oversaw daily operations across the organisation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025 – Present</div>
+        <div>
+          <div class="timeline-role">Next Gen Fellow</div>
+          <div class="timeline-company">3MTT Knowledge Programme · Data Analytics Track</div>
+          <ul class="timeline-bullets">
+            <li>Actively developing skills in data analytics, visualisation, and financial intelligence</li>
+            <li>Built and deployed FinIQ as competition entry — placed 3rd in Delta State Knowledge Showcase</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title">Open to the right<br>opportunity.</h2>
+    <p>I'm currently looking for roles in data analytics or business operations where I can grow, contribute, and build something meaningful.</p>
+    <div class="contact-links">
+      <a href="mailto:successazubuike34@gmail.com" class="contact-link primary">Email Me</a>
+      <a href="https://www.linkedin.com/in/success-azubuike-1a11212ba" target="_blank" class="contact-link">LinkedIn</a>
+      <a href="https://github.com/DigitalSera" target="_blank" class="contact-link">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built with intention by <span>Success Azubuike</span> · The Digital Sera · 2026
+</footer>
+
+</body>
+</html>
